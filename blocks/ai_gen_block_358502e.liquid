@@ -306,8 +306,6 @@
                   <div class="ai-product-card-badge-{{ ai_gen_id }} ai-product-card-badge-{{ badge_type }}-{{ ai_gen_id }}">
                     {% if badge_type == 'new' %}
                       {{ block.settings.badge_new_label }}
-                    {% elsif badge_type == 'sale' %}
-                      {{ block.settings.badge_sale_label }}
                     {% elsif badge_type == 'bestseller' %}
                       {{ block.settings.badge_bestseller_label }}
                     {% endif %}
@@ -468,10 +466,6 @@
           "label": "New"
         },
         {
-          "value": "sale",
-          "label": "Sale"
-        },
-        {
           "value": "bestseller",
           "label": "Bestseller"
         }
@@ -495,10 +489,6 @@
         {
           "value": "new",
           "label": "New"
-        },
-        {
-          "value": "sale",
-          "label": "Sale"
         },
         {
           "value": "bestseller",
@@ -526,10 +516,6 @@
           "label": "New"
         },
         {
-          "value": "sale",
-          "label": "Sale"
-        },
-        {
           "value": "bestseller",
           "label": "Bestseller"
         }
@@ -553,10 +539,6 @@
         {
           "value": "new",
           "label": "New"
-        },
-        {
-          "value": "sale",
-          "label": "Sale"
         },
         {
           "value": "bestseller",
@@ -649,7 +631,7 @@
       "type": "text",
       "id": "badge_sale_label",
       "label": "Sale badge text",
-      "default": "Sale"
+      "default": ""
     },
     {
       "type": "color",
