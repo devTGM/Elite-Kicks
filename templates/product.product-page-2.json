@@ -233,35 +233,6 @@
               },
               "blocks": {}
             },
-            "ai_gen_block_656aaff_7FNaEe": {
-              "type": "ai_gen_block_656aaff",
-              "settings": {
-                "link_text": "Size Guide",
-                "page": "{{ product.metafields.custom.size_guide.value }}",
-                "display_type": "popup",
-                "link_font_size": 16,
-                "link_underline": "underline",
-                "link_color": "#000000",
-                "link_hover_color": "#c15045",
-                "show_icon": true,
-                "icon_type": "external",
-                "icon_position": "right",
-                "icon_size": 18,
-                "popup_max_width": 800,
-                "drawer_width": 500,
-                "popup_border_radius": 8,
-                "content_padding": 30,
-                "popup_bg_color": "#ffffff",
-                "text_color": "#000000",
-                "heading_color": "#000000",
-                "border_color": "#e6e6e6",
-                "overlay_color": "#00000080",
-                "title_font_size": 24,
-                "image_border_radius": 4,
-                "desktop_width_percent": 100
-              },
-              "blocks": {}
-            },
             "buy_buttons": {
               "type": "buy-buttons",
               "settings": {
@@ -483,7 +454,6 @@
           "block_order": [
             "group",
             "variant_picker",
-            "ai_gen_block_656aaff_7FNaEe",
             "buy_buttons",
             "divider",
             "accordion_eUiV8K",
