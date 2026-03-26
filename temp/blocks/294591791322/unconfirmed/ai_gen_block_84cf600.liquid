@@ -1,6 +1,505 @@
+{% doc %}
+  @prompt
+    a custom design where icons are  set on the left hand side and the description is provided after the icons  the second icon must be placeed under the icon number 1 and its escription should be after the icon generate 7 icon custom template 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-icon-list-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.section_padding }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-icon-list__container-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.item_spacing }}px;
+  }
+
+  .ai-icon-list__item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: flex-start;
+    gap: {{ block.settings.icon_text_gap }}px;
+  }
+
+  .ai-icon-list__icon-wrapper-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ block.settings.icon_background_color }};
+    border-radius: {{ block.settings.icon_border_radius }}px;
+    color: {{ block.settings.icon_color }};
+  }
+
+  .ai-icon-list__icon-wrapper-{{ ai_gen_id }} svg {
+    width: calc({{ block.settings.icon_size }}px * 0.6);
+    height: calc({{ block.settings.icon_size }}px * 0.6);
+  }
+
+  .ai-icon-list__content-{{ ai_gen_id }} {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ai-icon-list__title-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.title_size }}px;
+    color: {{ block.settings.title_color }};
+    font-weight: 600;
+  }
+
+  .ai-icon-list__description-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.description_size }}px;
+    color: {{ block.settings.description_color }};
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-icon-list-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-icon-list__icon-wrapper-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_size | times: 0.8 }}px;
+      height: {{ block.settings.icon_size | times: 0.8 }}px;
+    }
+
+    .ai-icon-list__icon-wrapper-{{ ai_gen_id }} svg {
+      width: calc({{ block.settings.icon_size | times: 0.8 }}px * 0.6);
+      height: calc({{ block.settings.icon_size | times: 0.8 }}px * 0.6);
+    }
+  }
+{% endstyle %}
+
+<div class="ai-icon-list-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-icon-list__container-{{ ai_gen_id }}">
+    {% for i in (1..7) %}
+      {% liquid
+        assign title_key = 'item_' | append: i | append: '_title'
+        assign description_key = 'item_' | append: i | append: '_description'
+        assign icon_key = 'item_' | append: i | append: '_icon'
+        
+        assign item_title = block.settings[title_key]
+        assign item_description = block.settings[description_key]
+        assign item_icon = block.settings[icon_key]
+      %}
+
+      <div class="ai-icon-list__item-{{ ai_gen_id }}">
+        <div class="ai-icon-list__icon-wrapper-{{ ai_gen_id }}">
+          {% case item_icon %}
+            {% when 'check' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            {% when 'star' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            {% when 'heart' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            {% when 'shield' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            {% when 'truck' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            {% when 'gift' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                <rect x="2" y="7" width="20" height="5"></rect>
+                <line x1="12" y1="22" x2="12" y2="7"></line>
+                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+              </svg>
+            {% when 'clock' %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            {% else %}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+          {% endcase %}
+        </div>
+        <div class="ai-icon-list__content-{{ ai_gen_id }}">
+          {% if item_title != blank %}
+            <h3 class="ai-icon-list__title-{{ ai_gen_id }}">{{ item_title }}</h3>
+          {% endif %}
+          {% if item_description != blank %}
+            <p class="ai-icon-list__description-{{ ai_gen_id }}">{{ item_description }}</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Icon list",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Section padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "item_spacing",
+      "label": "Space between items",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "icon_text_gap",
+      "label": "Icon to text spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Icon style"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 30,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "icon_background_color",
+      "label": "Icon background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "range",
+      "id": "icon_border_radius",
+      "label": "Icon border radius",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Item 1"
+    },
+    {
+      "type": "select",
+      "id": "item_1_icon",
+      "label": "Icon",
+      "options": [
+        { "value": "check", "label": "Check" },
+        { "value": "star", "label": "Star" },
+        { "value": "heart", "label": "Heart" },
+        { "value": "shield", "label": "Shield" },
+        { "value": "truck", "label": "Truck" },
+        { "value": "gift", "label": "Gift" },
+        { "value": "clock", "label": "Clock" }
+      ],
+      "default": "check"
+    },
+    {
+      "type": "text",
+      "id": "item_1_title",
+      "label": "Title",
+      "default": "Premium Quality"
+    },
+    {
+      "type": "textarea",
+      "id": "item_1_description",
+      "label": "Description",
+      "default": "All our products are made with the highest quality materials and craftsmanship."
+    },
+    {
+      "type": "header",
+      "content": "Item 2"
+    },
+    {
+      "type": "select",
+      "id": "item_2_icon",
+      "label": "Icon",
+      "options": [
+        { "value": "check", "label": "Check" },
+        { "value": "star", "label": "Star" },
+        { "value": "heart", "label": "Heart" },
+        { "value": "shield", "label": "Shield" },
+        { "value": "truck", "label": "Truck" },
+        { "value": "gift", "label": "Gift" },
+        { "value": "clock", "label": "Clock" }
+      ],
+      "default": "truck"
+    },
+    {
+      "type": "text",
+      "id": "item_2_title",
+      "label": "Title",
+      "default": "Free Shipping"
+    },
+    {
+      "type": "textarea",
+      "id": "item_2_description",
+      "label": "Description",
+      "default": "Enjoy free shipping on all orders over ₹2000 across India."
+    },
+    {
+      "type": "header",
+      "content": "Item 3"
+    },
+    {
+      "type": "select",
+      "id": "item_3_icon",
+      "label": "Icon",
+      "options": [
+        { "value": "check", "label": "Check" },
+        { "value": "star", "label": "Star" },
+        { "value": "heart", "label": "Heart" },
+        { "value": "shield", "label": "Shield" },
+        { "value": "truck", "label": "Truck" },
+        { "value": "gift", "label": "Gift" },
+        { "value": "clock", "label": "Clock" }
+      ],
+      "default": "shield"
+    },
+    {
+      "type": "text",
+      "id": "item_3_title",
+      "label": "Title",
+      "default": "Secure Payment"
+    },
+    {
+      "type": "textarea",
+      "id": "item_3_description",
+      "label": "Description",
+      "default": "Your payment information is processed securely with industry-standard encryption."
+    },
+    {
+      "type": "header",
+      "content": "Item 4"
+    },
+    {
+      "type": "select",
+      "id": "item_4_icon",
+      "label": "Icon",
+      "options": [
+        { "value": "check", "label": "Check" },
+        { "value": "star", "label": "Star" },
+        { "value": "heart", "label": "Heart" },
+        { "value": "shield", "label": "Shield" },
+        { "value": "truck", "label": "Truck" },
+        { "value": "gift", "label": "Gift" },
+        { "value": "clock", "label": "Clock" }
+      ],
+      "default": "heart"
+    },
+    {
+      "type": "text",
+      "id": "item_4_title",
+      "label": "Title",
+      "default": "Customer Satisfaction"
+    },
+    {
+      "type": "textarea",
+      "id": "item_4_description",
+      "label": "Description",
+      "default": "We prioritize your satisfaction with dedicated customer support and easy returns."
+    },
+    {
+      "type": "header",
+      "content": "Item 5"
+    },
+    {
+      "type": "select",
+      "id": "item_5_icon",
+      "label": "Icon",
+      "options": [
+        { "value": "check", "label": "Check" },
+        { "value": "star", "label": "Star" },
+        { "value": "heart", "label": "Heart" },
+        { "value": "shield", "label": "Shield" },
+        { "value": "truck", "label": "Truck" },
+        { "value": "gift", "label": "Gift" },
+        { "value": "clock", "label": "Clock" }
+      ],
+      "default": "star"
+    },
+    {
+      "type": "text",
+      "id": "item_5_title",
+      "label": "Title",
+      "default": "Authentic Products"
+    },
+    {
+      "type": "textarea",
+      "id": "item_5_description",
+      "label": "Description",
+      "default": "Every product is 100% authentic and comes with a guarantee of genuineness."
+    },
+    {
+      "type": "header",
+      "content": "Item 6"
+    },
+    {
+      "type": "select",
+      "id": "item_6_icon",
+      "label": "Icon",
+      "options": [
+        { "value": "check", "label": "Check" },
+        { "value": "star", "label": "Star" },
+        { "value": "heart", "label": "Heart" },
+        { "value": "shield", "label": "Shield" },
+        { "value": "truck", "label": "Truck" },
+        { "value": "gift", "label": "Gift" },
+        { "value": "clock", "label": "Clock" }
+      ],
+      "default": "gift"
+    },
+    {
+      "type": "text",
+      "id": "item_6_title",
+      "label": "Title",
+      "default": "Special Offers"
+    },
+    {
+      "type": "textarea",
+      "id": "item_6_description",
+      "label": "Description",
+      "default": "Get exclusive deals and special offers when you shop with us."
+    },
+    {
+      "type": "header",
+      "content": "Item 7"
+    },
+    {
+      "type": "select",
+      "id": "item_7_icon",
+      "label": "Icon",
+      "options": [
+        { "value": "check", "label": "Check" },
+        { "value": "star", "label": "Star" },
+        { "value": "heart", "label": "Heart" },
+        { "value": "shield", "label": "Shield" },
+        { "value": "truck", "label": "Truck" },
+        { "value": "gift", "label": "Gift" },
+        { "value": "clock", "label": "Clock" }
+      ],
+      "default": "clock"
+    },
+    {
+      "type": "text",
+      "id": "item_7_title",
+      "label": "Title",
+      "default": "Fast Delivery"
+    },
+    {
+      "type": "textarea",
+      "id": "item_7_description",
+      "label": "Description",
+      "default": "Quick processing and delivery to get your order to you as soon as possible."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon list"
+    }
+  ]
+}
 {% endschema %}
