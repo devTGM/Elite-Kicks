@@ -1,6 +1,448 @@
+{% doc %}
+  @prompt
+    a custom design where icons are  set on the left hand side and the description is provided after the icons  the second icon must be placeed under the icon number 1 and its escription should be after the icon generate 7 icon custom template and the icon must be custom that can be changed with custom images 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-icon-list-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.section_padding }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-icon-list__container-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.item_spacing }}px;
+  }
+
+  .ai-icon-list__item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: flex-start;
+    gap: {{ block.settings.icon_text_gap }}px;
+  }
+
+  .ai-icon-list__icon-wrapper-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ block.settings.icon_background_color }};
+    border-radius: {{ block.settings.icon_border_radius }}px;
+    padding: {{ block.settings.icon_padding }}px;
+  }
+
+  .ai-icon-list__icon-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .ai-icon-list__icon-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: {{ block.settings.icon_placeholder_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+
+  .ai-icon-list__icon-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-icon-list__content-{{ ai_gen_id }} {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ai-icon-list__title-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.title_size }}px;
+    color: {{ block.settings.title_color }};
+    font-weight: 600;
+  }
+
+  .ai-icon-list__description-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.description_size }}px;
+    color: {{ block.settings.description_color }};
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-icon-list-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-icon-list__icon-wrapper-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_size | times: 0.8 }}px;
+      height: {{ block.settings.icon_size | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<icon-list-{{ ai_gen_id }}
+  class="ai-icon-list-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-icon-list__container-{{ ai_gen_id }}">
+    {% for i in (1..7) %}
+      {% liquid
+        assign icon_key = 'icon_' | append: i
+        assign title_key = 'title_' | append: i
+        assign description_key = 'description_' | append: i
+
+        assign icon = block.settings[icon_key]
+        assign title = block.settings[title_key]
+        assign description = block.settings[description_key]
+      %}
+
+      <div class="ai-icon-list__item-{{ ai_gen_id }}">
+        <div class="ai-icon-list__icon-wrapper-{{ ai_gen_id }}">
+          {% if icon %}
+            <img
+              src="{{ icon | image_url: width: 200 }}"
+              alt="{{ title | escape }}"
+              class="ai-icon-list__icon-{{ ai_gen_id }}"
+              loading="lazy"
+              width="200"
+              height="200"
+            >
+          {% else %}
+            <div class="ai-icon-list__icon-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-icon-list__content-{{ ai_gen_id }}">
+          {% if title != blank %}
+            <h3 class="ai-icon-list__title-{{ ai_gen_id }}">{{ title }}</h3>
+          {% endif %}
+          {% if description != blank %}
+            <p class="ai-icon-list__description-{{ ai_gen_id }}">{{ description }}</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</icon-list-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class IconList{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+      }
+    }
+
+    customElements.define('icon-list-{{ ai_gen_id }}', IconList{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Icon list",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Section padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "item_spacing",
+      "label": "Space between items",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "icon_text_gap",
+      "label": "Icon to text spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Icon style"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 40,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "icon_padding",
+      "label": "Icon padding",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "icon_border_radius",
+      "label": "Icon border radius",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "icon_background_color",
+      "label": "Icon background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "icon_placeholder_color",
+      "label": "Placeholder background",
+      "default": "#e6e6e6"
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Item 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_1",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title_1",
+      "label": "Title",
+      "default": "Feature one"
+    },
+    {
+      "type": "textarea",
+      "id": "description_1",
+      "label": "Description",
+      "default": "Describe your feature here with engaging details."
+    },
+    {
+      "type": "header",
+      "content": "Item 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_2",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title_2",
+      "label": "Title",
+      "default": "Feature two"
+    },
+    {
+      "type": "textarea",
+      "id": "description_2",
+      "label": "Description",
+      "default": "Describe your feature here with engaging details."
+    },
+    {
+      "type": "header",
+      "content": "Item 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_3",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title_3",
+      "label": "Title",
+      "default": "Feature three"
+    },
+    {
+      "type": "textarea",
+      "id": "description_3",
+      "label": "Description",
+      "default": "Describe your feature here with engaging details."
+    },
+    {
+      "type": "header",
+      "content": "Item 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_4",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title_4",
+      "label": "Title",
+      "default": "Feature four"
+    },
+    {
+      "type": "textarea",
+      "id": "description_4",
+      "label": "Description",
+      "default": "Describe your feature here with engaging details."
+    },
+    {
+      "type": "header",
+      "content": "Item 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_5",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title_5",
+      "label": "Title",
+      "default": "Feature five"
+    },
+    {
+      "type": "textarea",
+      "id": "description_5",
+      "label": "Description",
+      "default": "Describe your feature here with engaging details."
+    },
+    {
+      "type": "header",
+      "content": "Item 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_6",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title_6",
+      "label": "Title",
+      "default": "Feature six"
+    },
+    {
+      "type": "textarea",
+      "id": "description_6",
+      "label": "Description",
+      "default": "Describe your feature here with engaging details."
+    },
+    {
+      "type": "header",
+      "content": "Item 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_7",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title_7",
+      "label": "Title",
+      "default": "Feature seven"
+    },
+    {
+      "type": "textarea",
+      "id": "description_7",
+      "label": "Description",
+      "default": "Describe your feature here with engaging details."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon list"
+    }
+  ],
+  "tag": null
+}
 {% endschema %}
