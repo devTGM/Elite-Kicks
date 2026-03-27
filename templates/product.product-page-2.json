@@ -574,7 +574,6 @@
         "ai_gen_block_df8ca45_rCmaLx": {
           "type": "ai_gen_block_df8ca45",
           "name": "Image with text",
-          "disabled": true,
           "settings": {
             "image_position": "left",
             "image_width": 50,
