@@ -235,6 +235,7 @@
             },
             "ai_gen_block_656aaff_7FNaEe": {
               "type": "ai_gen_block_656aaff",
+              "disabled": true,
               "settings": {
                 "link_text": "Size Guide",
                 "page": "{{ closest.product.metafields.custom.size_guide.value }}",
