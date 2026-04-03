@@ -196,6 +196,10 @@
                       },
                       "blocks": {}
                     },
+                    "razorpay_affordability_widget_affordability_block_JWjGpn": {
+                      "type": "shopify://apps/razorpay-affordability-widget/blocks/affordability-block/5bf9b115-5933-4c1b-ade0-ef564b250852",
+                      "settings": {}
+                    },
                     "review_QhdEwM": {
                       "type": "review",
                       "settings": {
@@ -207,16 +211,12 @@
                         "alignment": "left"
                       },
                       "blocks": {}
-                    },
-                    "razorpay_affordability_widget_affordability_block_drDhUe": {
-                      "type": "shopify://apps/razorpay-affordability-widget/blocks/affordability-block/5bf9b115-5933-4c1b-ade0-ef564b250852",
-                      "settings": {}
                     }
                   },
                   "block_order": [
                     "price_97GqNF",
-                    "review_QhdEwM",
-                    "razorpay_affordability_widget_affordability_block_drDhUe"
+                    "razorpay_affordability_widget_affordability_block_JWjGpn",
+                    "review_QhdEwM"
                   ]
                 }
               },
