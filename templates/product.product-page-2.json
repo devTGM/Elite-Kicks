@@ -233,6 +233,10 @@
               },
               "blocks": {}
             },
+            "razorpay_affordability_widget_affordability_block_gVajd8": {
+              "type": "shopify://apps/razorpay-affordability-widget/blocks/affordability-block/5bf9b115-5933-4c1b-ade0-ef564b250852",
+              "settings": {}
+            },
             "buy_buttons": {
               "type": "buy-buttons",
               "settings": {
@@ -454,6 +458,7 @@
           "block_order": [
             "group",
             "variant_picker",
+            "razorpay_affordability_widget_affordability_block_gVajd8",
             "buy_buttons",
             "divider",
             "accordion_eUiV8K",
