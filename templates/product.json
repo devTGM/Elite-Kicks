@@ -134,6 +134,26 @@
                   },
                   "blocks": {}
                 },
+                "sku_YQdQbe": {
+                  "type": "sku",
+                  "name": "t:names.product_sku",
+                  "settings": {
+                    "type_preset": "",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
                 "group_8B3NLh": {
                   "type": "group",
                   "name": "Price & Rating",
@@ -217,6 +237,7 @@
               },
               "block_order": [
                 "text_nXdFcd",
+                "sku_YQdQbe",
                 "group_8B3NLh"
               ]
             },
