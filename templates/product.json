@@ -338,6 +338,10 @@
               },
               "blocks": {}
             },
+            "selleasy_lb_upsell_widget_ba_Y8edGe": {
+              "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-ba/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+              "settings": {}
+            },
             "accordion_eUiV8K": {
               "type": "accordion",
               "name": "t:names.accordion",
@@ -560,6 +564,7 @@
             "razorpay_trusted_business_rtb_widget_zGrNQe",
             "buy_buttons",
             "divider",
+            "selleasy_lb_upsell_widget_ba_Y8edGe",
             "accordion_eUiV8K",
             "text"
           ]
