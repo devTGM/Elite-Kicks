@@ -26,7 +26,7 @@
             "thumbnail_position": "left",
             "thumbnail_width": 48,
             "thumbnail_radius": 0,
-            "aspect_ratio": "1",
+            "aspect_ratio": "1/1.25",
             "constrain_to_viewport": false,
             "media_fit": "cover",
             "media_radius": 0,
@@ -34,7 +34,7 @@
             "zoom": true,
             "video_loop": true,
             "hide_variants": false,
-            "padding-block-start": 100,
+            "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
