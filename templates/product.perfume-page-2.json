@@ -237,36 +237,6 @@
               },
               "blocks": {}
             },
-            "ai_gen_block_656aaff_7FNaEe": {
-              "type": "ai_gen_block_656aaff",
-              "disabled": true,
-              "settings": {
-                "link_text": "Size Guide",
-                "page": "{{ product.metafields.custom.size_guide.value }}",
-                "display_type": "popup",
-                "link_font_size": 16,
-                "link_underline": "underline",
-                "link_color": "#000000",
-                "link_hover_color": "#c15045",
-                "show_icon": true,
-                "icon_type": "external",
-                "icon_position": "right",
-                "icon_size": 18,
-                "popup_max_width": 800,
-                "drawer_width": 500,
-                "popup_border_radius": 8,
-                "content_padding": 30,
-                "popup_bg_color": "#ffffff",
-                "text_color": "#000000",
-                "heading_color": "#000000",
-                "border_color": "#e6e6e6",
-                "overlay_color": "#00000080",
-                "title_font_size": 24,
-                "image_border_radius": 4,
-                "desktop_width_percent": 100
-              },
-              "blocks": {}
-            },
             "buy_buttons": {
               "type": "buy-buttons",
               "settings": {
@@ -372,46 +342,6 @@
                     "text_VmYWEB"
                   ]
                 },
-                "accordion_row_rVtm8n": {
-                  "type": "_accordion-row",
-                  "disabled": true,
-                  "settings": {
-                    "heading": "Care Instructions",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_XkNq9c": {
-                      "type": "text",
-                      "settings": {
-                        "text": "{{ closest.product.metafields.custom.care_instruction | metafield_tag }}",
-                        "width": "100%",
-                        "max_width": "none",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_XkNq9c"
-                  ]
-                },
                 "accordion_row_RJF3y3": {
                   "type": "_accordion-row",
                   "settings": {
@@ -494,35 +424,37 @@
               },
               "block_order": [
                 "accordion_row_JkVL7H",
-                "accordion_row_rVtm8n",
                 "accordion_row_RJF3y3",
                 "accordion_row_EVKDB6"
               ]
             },
-            "text": {
-              "type": "product-description",
-              "name": "Product description",
+            "ai_gen_block_656aaff_7FNaEe": {
+              "type": "ai_gen_block_656aaff",
               "disabled": true,
               "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "none",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "link_text": "Verified Authentic",
+                "page": "",
+                "display_type": "popup",
+                "link_font_size": 16,
+                "link_underline": "underline",
+                "link_color": "#000000",
+                "link_hover_color": "#c15045",
+                "show_icon": true,
+                "icon_type": "external",
+                "icon_position": "right",
+                "icon_size": 18,
+                "popup_max_width": 800,
+                "drawer_width": 500,
+                "popup_border_radius": 8,
+                "content_padding": 30,
+                "popup_bg_color": "#ffffff",
+                "text_color": "#000000",
+                "heading_color": "#000000",
+                "border_color": "#e6e6e6",
+                "overlay_color": "#00000080",
+                "title_font_size": 24,
+                "image_border_radius": 4,
+                "desktop_width_percent": 100
               },
               "blocks": {}
             }
@@ -531,11 +463,10 @@
             "group",
             "razorpay_affordability_widget_affordability_block_t3d788",
             "variant_picker",
-            "ai_gen_block_656aaff_7FNaEe",
             "buy_buttons",
             "divider",
             "accordion_eUiV8K",
-            "text"
+            "ai_gen_block_656aaff_7FNaEe"
           ]
         }
       },
@@ -691,46 +622,6 @@
           },
           "blocks": {}
         },
-        "ai_gen_block_df8ca45_RQwkim": {
-          "type": "ai_gen_block_df8ca45",
-          "settings": {
-            "image_position": "right",
-            "image_width": 50,
-            "max_width": 1200,
-            "spacing": 40,
-            "padding_vertical": 0,
-            "padding_horizontal": 20,
-            "background_color": "#ffffff",
-            "text_alignment": "left",
-            "image": "{{ closest.product.featured_image }}",
-            "aspect_ratio": "100",
-            "image_border_radius": 10,
-            "heading": "Everyday, Intentionally Made",
-            "heading_size": 32,
-            "heading_color": "#000000",
-            "text": "<p>What you wear and what you carry through time should feel effortless. This collection brings together refined apparel and considered timepieces—chosen for comfort, balance, and enduring design. Clean silhouettes meet precise craftsmanship, creating pieces that move naturally with your day and remain relevant beyond moments and trends.</p>",
-            "text_size": 16,
-            "text_color": "#000000",
-            "text_spacing": 16,
-            "button_text": "Learn more",
-            "button_link": "",
-            "button_text_size": 14,
-            "button_padding_vertical": 12,
-            "button_padding_horizontal": 24,
-            "button_border_radius": 0,
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "button_hover_background": "#333333",
-            "button_hover_text_color": "#ffffff",
-            "mobile_text_alignment": "center",
-            "mobile_spacing": 20,
-            "mobile_padding_vertical": 0,
-            "mobile_padding_horizontal": 15,
-            "mobile_heading_size": 24,
-            "mobile_text_size": 14
-          },
-          "blocks": {}
-        },
         "ai_gen_block_df8ca45_fVReyX": {
           "type": "ai_gen_block_df8ca45",
           "settings": {
@@ -774,7 +665,6 @@
       },
       "block_order": [
         "ai_gen_block_df8ca45_rCmaLx",
-        "ai_gen_block_df8ca45_RQwkim",
         "ai_gen_block_df8ca45_fVReyX"
       ],
       "settings": {

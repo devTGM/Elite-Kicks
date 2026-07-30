@@ -447,33 +447,6 @@
                 "accordion_row_rVtm8n",
                 "accordion_row_RJF3y3"
               ]
-            },
-            "text": {
-              "type": "product-description",
-              "name": "Product description",
-              "disabled": true,
-              "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "none",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
             }
           },
           "block_order": [
@@ -482,8 +455,7 @@
             "razorpay_affordability_widget_affordability_block_gVajd8",
             "buy_buttons",
             "divider",
-            "accordion_eUiV8K",
-            "text"
+            "accordion_eUiV8K"
           ]
         }
       },
