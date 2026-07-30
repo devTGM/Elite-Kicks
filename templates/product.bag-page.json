@@ -670,6 +670,46 @@
           },
           "blocks": {}
         },
+        "ai_gen_block_df8ca45_4nQYz6": {
+          "type": "ai_gen_block_df8ca45",
+          "settings": {
+            "image_position": "left",
+            "image_width": 50,
+            "max_width": 1200,
+            "spacing": 40,
+            "padding_vertical": 0,
+            "padding_horizontal": 20,
+            "background_color": "#ffffff",
+            "text_alignment": "left",
+            "image": "shopify://shop_images/223.png",
+            "aspect_ratio": "100",
+            "image_border_radius": 10,
+            "heading": "Verified Authentic",
+            "heading_size": 32,
+            "heading_color": "#000000",
+            "text": "<p><br/>Elite Kicks is dedicated to providing only authentic, premium-quality sneakers. Each pair is meticulously inspected and verified through a comprehensive authentication process to guarantee its originality. Our commitment to integrity, transparency, and customer trust ensures you can shop with complete confidence.<br/><br/></p>",
+            "text_size": 16,
+            "text_color": "#000000",
+            "text_spacing": 16,
+            "button_text": "Learn more",
+            "button_link": "",
+            "button_text_size": 14,
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 24,
+            "button_border_radius": 0,
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "button_hover_background": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "mobile_text_alignment": "center",
+            "mobile_spacing": 20,
+            "mobile_padding_vertical": 0,
+            "mobile_padding_horizontal": 15,
+            "mobile_heading_size": 24,
+            "mobile_text_size": 14
+          },
+          "blocks": {}
+        },
         "ai_gen_block_df8ca45_RQwkim": {
           "type": "ai_gen_block_df8ca45",
           "settings": {
@@ -713,6 +753,7 @@
       },
       "block_order": [
         "ai_gen_block_df8ca45_rCmaLx",
+        "ai_gen_block_df8ca45_4nQYz6",
         "ai_gen_block_df8ca45_RQwkim"
       ],
       "settings": {
