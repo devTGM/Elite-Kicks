@@ -305,6 +305,36 @@
               },
               "blocks": {}
             },
+            "ai_gen_block_656aaff_VHDJeJ": {
+              "type": "ai_gen_block_656aaff",
+              "name": "Page link popup",
+              "settings": {
+                "link_text": "Verified Authentic",
+                "page": "authentic-watches",
+                "display_type": "popup",
+                "link_font_size": 16,
+                "link_underline": "underline",
+                "link_color": "#000000",
+                "link_hover_color": "#c15045",
+                "show_icon": true,
+                "icon_type": "external",
+                "icon_position": "right",
+                "icon_size": 18,
+                "popup_max_width": 800,
+                "drawer_width": 500,
+                "popup_border_radius": 8,
+                "content_padding": 30,
+                "popup_bg_color": "#ffffff",
+                "text_color": "#000000",
+                "heading_color": "#000000",
+                "border_color": "#e6e6e6",
+                "overlay_color": "rgba(0, 0, 0, 0.5)",
+                "title_font_size": 24,
+                "image_border_radius": 4,
+                "desktop_width_percent": 100
+              },
+              "blocks": {}
+            },
             "accordion_eUiV8K": {
               "type": "accordion",
               "name": "t:names.accordion",
@@ -455,6 +485,7 @@
             "razorpay_affordability_widget_affordability_block_gVajd8",
             "buy_buttons",
             "divider",
+            "ai_gen_block_656aaff_VHDJeJ",
             "accordion_eUiV8K"
           ]
         }
@@ -581,13 +612,13 @@
             "padding_horizontal": 20,
             "background_color": "#ffffff",
             "text_alignment": "left",
-            "image": "{{ closest.product.metafields.custom.second_featured_image.value }}",
+            "image": "shopify://shop_images/172.png",
             "aspect_ratio": "100",
             "image_border_radius": 10,
-            "heading": "Everyday, Intentionally Made",
+            "heading": "Verified Authentic",
             "heading_size": 32,
             "heading_color": "#000000",
-            "text": "<p>What you wear and what you carry through time should feel effortless. This collection brings together refined apparel and considered timepieces—chosen for comfort, balance, and enduring design. Clean silhouettes meet precise craftsmanship, creating pieces that move naturally with your day and remain relevant beyond moments and trends.</p>",
+            "text": "<p>Elite Kicks is committed to offering only authentic luxury timepieces and premium watches sourced from trusted channels. Every watch undergoes a meticulous authentication process to verify its originality, craftsmanship, and exceptional quality. As a LEGIT APP Verified Trusted Seller, we uphold the highest standards of transparency, integrity, and customer confidence, ensuring every purchase is backed by trust and authenticity.</p>",
             "text_size": 16,
             "text_color": "#000000",
             "text_spacing": 16,
