@@ -17,7 +17,7 @@
         "ai_gen_block_2029b57_t98p7a": {
           "type": "ai_gen_block_2029b57",
           "settings": {
-            "disclaimer_text": "Elite Kicks is an independent resale platform and is not affiliated with or endorsed by any brands shown.",
+            "disclaimer_text": "Elite Kicks Co is an independent resale platform and is not affiliated with or endorsed by any brands shown.",
             "show_icon": false,
             "text_alignment": "center",
             "desktop_width_percent": 100,
@@ -118,7 +118,7 @@
                 "inverse": false,
                 "font": "heading",
                 "unit": "percent",
-                "percent_width": 57,
+                "percent_width": 40,
                 "pixel_height": 48,
                 "custom_mobile_size": false,
                 "unit_mobile": "percent",
