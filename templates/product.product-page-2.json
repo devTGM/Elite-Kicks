@@ -34,7 +34,7 @@
             "zoom": true,
             "video_loop": true,
             "hide_variants": false,
-            "padding-block-start": 0,
+            "padding-block-start": 100,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
@@ -328,7 +328,7 @@
                 "text_color": "#000000",
                 "heading_color": "#000000",
                 "border_color": "#e6e6e6",
-                "overlay_color": "rgba(0, 0, 0, 0.5)",
+                "overlay_color": "#00000080",
                 "title_font_size": 24,
                 "image_border_radius": 4,
                 "desktop_width_percent": 100
@@ -477,6 +477,18 @@
                 "accordion_row_rVtm8n",
                 "accordion_row_RJF3y3"
               ]
+            },
+            "trustpilot_trustpilot_review_collector_widget_z39KPA": {
+              "type": "shopify://apps/trustpilot/blocks/trustpilot_review_collector_widget/af628f2e-96c9-437f-bc0a-e8f7ff3fa8b4",
+              "settings": {
+                "locale": "en-US",
+                "width": 100,
+                "height": 52,
+                "vertical_space": 10,
+                "font_family": "Helvetica Neue",
+                "font_color": "#191919",
+                "border_color": "#00b67a"
+              }
             }
           },
           "block_order": [
@@ -486,7 +498,8 @@
             "buy_buttons",
             "divider",
             "ai_gen_block_656aaff_VHDJeJ",
-            "accordion_eUiV8K"
+            "accordion_eUiV8K",
+            "trustpilot_trustpilot_review_collector_widget_z39KPA"
           ]
         }
       },
