@@ -57,7 +57,7 @@
     "cart_type": "drawer",
     "cart_price_font": "secondary",
     "drawer_color_scheme": "scheme-410e54e7-aa3a-410b-af35-b051491ebc34",
-    "icon_stroke": "default",
+    "icon_stroke": "thin",
     "input_border_width": 2,
     "inputs_border_radius": 0,
     "popover_color_scheme": "scheme-1",
