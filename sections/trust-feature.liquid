@@ -164,7 +164,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     text-align: center;
 
@@ -258,30 +258,43 @@
 
   /* Medium screens */
   @media screen and (max-width: 900px) {
-
     .trust-features__container {
       padding: 28px 1.5vw;
     }
-
     .trust-feature {
       padding: 0 1vw;
     }
   }
 
 
-  /* Smaller screens */
+  /* Smaller screens (Mobile Fix) */
   @media screen and (max-width: 600px) {
-
     .trust-features__container {
       padding: 24px 8px;
+      flex-wrap: wrap; /* Allows layout to break into multiple rows */
+      row-gap: 20px; /* Spacing between top and bottom rows */
     }
 
     .trust-feature {
       padding: 0 5px;
+      flex: 0 0 50%; /* Creates a clean 2x2 grid */
     }
 
     .trust-feature__icon {
-      margin-bottom: 9px;
+      width: 44px; /* Shrunk down for mobile */
+      height: 44px;
+      margin-bottom: 8px;
+    }
+
+    .trust-feature__icon svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .trust-feature__content h3,
+    .trust-feature__content p {
+      white-space: normal; /* Lets text wrap instead of getting cut off by ellipses */
+      overflow: visible;
     }
   }
 </style>
