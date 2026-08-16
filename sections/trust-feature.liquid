@@ -1,0 +1,331 @@
+<div class="trust-features">
+  <div class="trust-features__container">
+
+    <!-- Feature 1: Authentic -->
+    <div class="trust-feature">
+      <div class="trust-feature__icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 3l7 3v5c0 4.5-3 7.8-7 10-4-2.2-7-5.5-7-10V6l7-3z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M9 12l2 2 4-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+
+      <div class="trust-feature__content">
+        <h3>{{ section.settings.feature_1_title }}</h3>
+        <p>{{ section.settings.feature_1_text }}</p>
+      </div>
+    </div>
+
+
+    <!-- Feature 2: Shipping -->
+    <div class="trust-feature">
+      <div class="trust-feature__icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M3 6h11v10H3z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M14 9h4l3 3v4h-7z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+          />
+          <circle
+            cx="7"
+            cy="18"
+            r="2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <circle
+            cx="18"
+            cy="18"
+            r="2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+        </svg>
+      </div>
+
+      <div class="trust-feature__content">
+        <h3>{{ section.settings.feature_2_title }}</h3>
+        <p>{{ section.settings.feature_2_text }}</p>
+      </div>
+    </div>
+
+
+    <!-- Feature 3: Payments -->
+    <div class="trust-feature">
+      <div class="trust-feature__icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect
+            x="3"
+            y="5"
+            width="18"
+            height="14"
+            rx="2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <path
+            d="M3 10h18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <path
+            d="M7 15h4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+
+      <div class="trust-feature__content">
+        <h3>{{ section.settings.feature_3_title }}</h3>
+        <p>{{ section.settings.feature_3_text }}</p>
+      </div>
+    </div>
+
+
+    <!-- Feature 4: Best Price -->
+    <div class="trust-feature">
+      <div class="trust-feature__icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 3.5l2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3.5z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+
+      <div class="trust-feature__content">
+        <h3>{{ section.settings.feature_4_title }}</h3>
+        <p>{{ section.settings.feature_4_text }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<style>
+  .trust-features {
+    width: 100%;
+    background: #ffffff;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  .trust-features__container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 38px 40px;
+    box-sizing: border-box;
+  }
+
+  .trust-feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+  }
+
+  /* Icon Circle */
+  .trust-feature__icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #e53935;
+    flex-shrink: 0;
+  }
+
+  .trust-feature__icon svg {
+    width: 31px;
+    height: 31px;
+    display: block;
+  }
+
+  /* Heading */
+  .trust-feature__content h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #111111;
+    letter-spacing: 0;
+  }
+
+  /* Description */
+  .trust-feature__content p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #777777;
+    letter-spacing: 0;
+  }
+
+  /* Tablet */
+  @media screen and (max-width: 990px) {
+    .trust-features__container {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 38px;
+      padding: 35px 25px;
+    }
+
+    .trust-feature {
+      padding: 0 20px;
+    }
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 600px) {
+    .trust-features__container {
+      grid-template-columns: 1fr;
+      row-gap: 32px;
+      padding: 30px 20px;
+    }
+
+    .trust-feature {
+      padding: 0 10px;
+    }
+
+    .trust-feature__icon {
+      width: 68px;
+      height: 68px;
+      margin-bottom: 16px;
+    }
+
+    .trust-feature__icon svg {
+      width: 27px;
+      height: 27px;
+    }
+
+    .trust-feature__content h3 {
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .trust-feature__content p {
+      font-size: 14px;
+    }
+  }
+</style>
+
+
+{% schema %}
+{
+  "name": "Trust features",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_title",
+      "label": "Title",
+      "default": "100% Authentic"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_text",
+      "label": "Description",
+      "default": "Verified before dispatch."
+    },
+
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_title",
+      "label": "Title",
+      "default": "Tracked Shipping"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_text",
+      "label": "Description",
+      "default": "Live order tracking."
+    },
+
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_title",
+      "label": "Title",
+      "default": "Secure Payments"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_text",
+      "label": "Description",
+      "default": "UPI • Cards • EMI"
+    },
+
+    {
+      "type": "header",
+      "content": "Feature 4"
+    },
+    {
+      "type": "text",
+      "id": "feature_4_title",
+      "label": "Title",
+      "default": "Best Price"
+    },
+    {
+      "type": "text",
+      "id": "feature_4_text",
+      "label": "Description",
+      "default": "Competitive pricing."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust features"
+    }
+  ]
+}
+{% endschema %}
