@@ -151,18 +151,18 @@
         "padding-block-end": 0
       }
     },
-    "divider_wHPrC4": {
-      "type": "divider",
-      "name": "t:names.divider_section",
+    "trust_feature_qPhDnR": {
+      "type": "trust-feature",
+      "name": "Trust features",
       "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 10,
-        "padding-block-end": 10
+        "feature_1_title": "100% Authentic",
+        "feature_1_text": "Verified before dispatch.",
+        "feature_2_title": "Tracked Shipping",
+        "feature_2_text": "Live order tracking.",
+        "feature_3_title": "Secure Payments",
+        "feature_3_text": "UPI • Cards • EMI",
+        "feature_4_title": "Best Price",
+        "feature_4_text": "Competitive pricing."
       }
     },
     "1766464771d71faee8": {
@@ -2644,26 +2644,11 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
-    },
-    "trust_feature_qPhDnR": {
-      "type": "trust-feature",
-      "name": "Trust features",
-      "settings": {
-        "feature_1_title": "100% Authentic",
-        "feature_1_text": "Verified before dispatch.",
-        "feature_2_title": "Tracked Shipping",
-        "feature_2_text": "Live order tracking.",
-        "feature_3_title": "Secure Payments",
-        "feature_3_text": "UPI • Cards • EMI",
-        "feature_4_title": "Best Price",
-        "feature_4_text": "Competitive pricing."
-      }
     }
   },
   "order": [
     "176674015967ba2b8b",
     "trust_feature_qPhDnR",
-    "divider_wHPrC4",
     "1766464771d71faee8",
     "marquee_eBmmjQ",
     "section_VEPXYL",
