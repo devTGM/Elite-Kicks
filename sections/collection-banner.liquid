@@ -1,31 +1,126 @@
-{% if collection.metafields.custom.collection_banner.value %}
-  <section class="collection-banner">
-    <img
-      src="{{ collection.metafields.custom.collection_banner.value | image_url: width: 2400 }}"
-      alt="{{ collection.title | escape }}"
-      loading="eager"
-    >
+{% liquid
+  assign banner = collection.metafields.custom.collection_banner.value
+%}
+
+{% if banner != blank %}
+  <section
+    class="collection-banner"
+    aria-label="{{ collection.title | escape }}"
+  >
+    <div class="collection-banner__wrapper">
+      <div class="collection-banner__image-wrapper">
+        {{
+          banner
+          | image_url: width: 3840
+          | image_tag:
+            class: 'collection-banner__image',
+            widths: '750, 1100, 1500, 2000, 2500, 3000, 3840',
+            sizes: '100vw',
+            loading: 'eager',
+            alt: collection.title
+        }}
+      </div>
+      
+      <div class="collection-banner__content">
+        <h1 class="collection-banner__title">{{ collection.title }}</h1>
+        <p class="collection-banner__subtitle">Discover the latest styles from Elite Kicks Co.</p>
+      </div>
+    </div>
   </section>
-
-  <style>
-    .collection-banner {
-      width: 100%;
-      overflow: hidden;
-      margin: 0;
-    }
-
-    .collection-banner img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-  </style>
 {% endif %}
+
+<style>
+  .collection-banner {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .collection-banner__wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .collection-banner__image-wrapper {
+    width: 100%;
+    height: 400px; /* Adjusted height for Desktop */
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+  }
+
+  .collection-banner__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+  }
+
+  .collection-banner__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4); /* Optional: Dark overlay to ensure text readability over bright images */
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+  .collection-banner__title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+    letter-spacing: 1px;
+  }
+
+  .collection-banner__subtitle {
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* Mobile Responsive Adjustments */
+  @media screen and (max-width: 749px) {
+    .collection-banner__image-wrapper {
+      height: 250px; /* Adjusted height specifically for Mobile view */
+    }
+    
+    .collection-banner__content {
+      padding: 1.5rem;
+    }
+
+    .collection-banner__title {
+      font-size: 2.2rem;
+      margin: 0 0 8px 0;
+    }
+
+    .collection-banner__subtitle {
+      font-size: 1rem;
+    }
+  }
+</style>
 
 {% schema %}
 {
   "name": "Collection Banner",
+  "tag": "section",
+  "class": "section-collection-banner",
   "settings": [],
   "presets": [
     {

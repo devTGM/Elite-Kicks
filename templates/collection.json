@@ -12,34 +12,6 @@
     "section": {
       "type": "section",
       "blocks": {
-        "ai_gen_block_f3491cc_Q6W4ir": {
-          "type": "ai_gen_block_f3491cc",
-          "settings": {
-            "image": "shopify://shop_images/karl.png",
-            "banner_link": "",
-            "desktop_width_percent": 100,
-            "banner_height": 420,
-            "mobile_height": 280,
-            "show_overlay": true,
-            "heading": "Step into something new",
-            "text": "Discover the latest styles from Elite Kicks Co.",
-            "button_label": "Shop now",
-            "button_link": "",
-            "horizontal_alignment": "center",
-            "vertical_alignment": "center",
-            "text_alignment": "center",
-            "heading_size": 44,
-            "mobile_heading_size": 30,
-            "background_color": "#f3f3f3",
-            "overlay_color": "#00000066",
-            "text_color": "#ffffff",
-            "button_color": "#000000",
-            "button_text_color": "#ffffff",
-            "focus_color": "#ffffff",
-            "button_radius": 0
-          },
-          "blocks": {}
-        },
         "text_tqQTNE": {
           "type": "text",
           "name": "Title",
@@ -95,7 +67,6 @@
         }
       },
       "block_order": [
-        "ai_gen_block_f3491cc_Q6W4ir",
         "text_tqQTNE",
         "text_JEyVkJ"
       ],
@@ -524,10 +495,16 @@
         "padding-block-start": 4,
         "padding-block-end": 48
       }
+    },
+    "collection_banner_aQQXTF": {
+      "type": "collection-banner",
+      "name": "Collection Banner",
+      "settings": {}
     }
   },
   "order": [
     "section",
+    "collection_banner_aQQXTF",
     "collection_list_XTWGyC",
     "main"
   ]
