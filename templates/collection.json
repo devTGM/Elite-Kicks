@@ -103,7 +103,7 @@
       "type": "collection-banner",
       "name": "Collection Banner",
       "settings": {
-        "corner_logo": "shopify://shop_images/Elite_Kicks_Co_Secondary_Logo_For_White_BG_e2843950-86c9-420b-917b-f1ec72a95cc4.png",
+        "corner_logo": "shopify://shop_images/Elite_Kicks_Co_secondary_logo_for_black_BG.png",
         "subtitle": "Discover the latest styles from Elite Kicks Co.",
         "desktop_height": 400,
         "mobile_height": 250,
