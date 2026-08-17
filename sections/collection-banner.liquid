@@ -8,6 +8,8 @@
     aria-label="{{ collection.title | escape }}"
   >
     <div class="collection-banner__wrapper">
+
+      <!-- Collection Banner Image -->
       <div class="collection-banner__image-wrapper">
         {{
           banner
@@ -20,16 +22,47 @@
             alt: collection.title
         }}
       </div>
-      
+
+      <!-- Banner Content -->
       <div class="collection-banner__content">
-        <h1 class="collection-banner__title">{{ collection.title }}</h1>
-        <p class="collection-banner__subtitle">Discover the latest styles from Elite Kicks Co.</p>
+
+        <!-- Bottom Left Logo -->
+        {% if section.settings.corner_logo != blank %}
+          <div class="collection-banner__corner-logo">
+            {{
+              section.settings.corner_logo
+              | image_url: width: 800
+              | image_tag:
+                class: 'collection-banner__corner-logo-image',
+                loading: 'lazy',
+                alt: 'Elite Kicks Co. Reselling Community'
+            }}
+          </div>
+        {% endif %}
+
+        <!-- Collection Title -->
+        <h1 class="collection-banner__title">
+          {{ collection.title }}
+        </h1>
+
+        <!-- Subtitle -->
+        {% if section.settings.subtitle != blank %}
+          <p class="collection-banner__subtitle">
+            {{ section.settings.subtitle }}
+          </p>
+        {% endif %}
+
       </div>
     </div>
   </section>
 {% endif %}
 
+
 <style>
+  /* =========================
+     COLLECTION BANNER
+     ========================= */
+
   .collection-banner {
     width: 100%;
     margin: 0;
@@ -45,9 +78,14 @@
     justify-content: center;
   }
 
+
+  /* =========================
+     BANNER IMAGE
+     ========================= */
+
   .collection-banner__image-wrapper {
     width: 100%;
-    height: 400px; /* Adjusted height for Desktop */
+    height: {{ section.settings.desktop_height }}px;
     margin: 0;
     padding: 0;
     line-height: 0;
@@ -63,65 +101,320 @@
     object-fit: cover;
   }
 
+
+  /* =========================
+     CONTENT OVERLAY
+     ========================= */
+
   .collection-banner__content {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
+
     width: 100%;
     height: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     text-align: center;
-    background: rgba(0, 0, 0, 0.4); /* Optional: Dark overlay to ensure text readability over bright images */
+
+    background: rgba(
+      0,
+      0,
+      0,
+      {{ section.settings.overlay_opacity | divided_by: 100.0 }}
+    );
+
     padding: 2rem;
     box-sizing: border-box;
   }
 
+
+  /* =========================
+     COLLECTION TITLE
+     ========================= */
+
   .collection-banner__title {
-    font-size: 3.5rem;
+    font-size: {{ section.settings.title_size }}rem;
     font-weight: 700;
-    color: #ffffff;
+    color: {{ section.settings.title_color }};
     margin: 0 0 10px 0;
     line-height: 1.2;
     letter-spacing: 1px;
   }
 
+
+  /* =========================
+     SUBTITLE
+     ========================= */
+
   .collection-banner__subtitle {
-    font-size: 1.25rem;
-    color: #ffffff;
+    font-size: {{ section.settings.subtitle_size }}rem;
+    color: {{ section.settings.subtitle_color }};
     margin: 0;
     line-height: 1.4;
   }
 
-  /* Mobile Responsive Adjustments */
+
+  /* =========================
+     BOTTOM LEFT LOGO
+     ========================= */
+
+  .collection-banner__corner-logo {
+    position: absolute;
+
+    left: {{ section.settings.logo_left }}px;
+    bottom: {{ section.settings.logo_bottom }}px;
+
+    width: {{ section.settings.logo_width }}px;
+
+    z-index: 5;
+    line-height: 0;
+  }
+
+  .collection-banner__corner-logo-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+
+  /* =========================
+     MOBILE
+     ========================= */
+
   @media screen and (max-width: 749px) {
+
     .collection-banner__image-wrapper {
-      height: 250px; /* Adjusted height specifically for Mobile view */
+      height: {{ section.settings.mobile_height }}px;
     }
-    
+
     .collection-banner__content {
       padding: 1.5rem;
     }
 
     .collection-banner__title {
-      font-size: 2.2rem;
+      font-size: {{ section.settings.mobile_title_size }}rem;
       margin: 0 0 8px 0;
     }
 
     .collection-banner__subtitle {
-      font-size: 1rem;
+      font-size: {{ section.settings.mobile_subtitle_size }}rem;
+    }
+
+    .collection-banner__corner-logo {
+      left: {{ section.settings.mobile_logo_left }}px;
+      bottom: {{ section.settings.mobile_logo_bottom }}px;
+      width: {{ section.settings.mobile_logo_width }}px;
     }
   }
 </style>
+
 
 {% schema %}
 {
   "name": "Collection Banner",
   "tag": "section",
   "class": "section-collection-banner",
-  "settings": [],
+
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "Collection Banner"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "corner_logo",
+      "label": "Bottom-left logo",
+      "info": "Upload your Elite Kicks Co. secondary logo."
+    },
+
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Discover the latest styles from Elite Kicks Co."
+    },
+
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "label": "Desktop banner height",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "default": 400
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Mobile banner height",
+      "min": 150,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "default": 250
+    },
+
+    {
+      "type": "header",
+      "content": "Logo Position & Size"
+    },
+
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Desktop logo width",
+      "min": 80,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "default": 180
+    },
+
+    {
+      "type": "range",
+      "id": "logo_left",
+      "label": "Desktop logo left spacing",
+      "min": 10,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+
+    {
+      "type": "range",
+      "id": "logo_bottom",
+      "label": "Desktop logo bottom spacing",
+      "min": 10,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_logo_width",
+      "label": "Mobile logo width",
+      "min": 60,
+      "max": 250,
+      "step": 10,
+      "unit": "px",
+      "default": 130
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_logo_left",
+      "label": "Mobile logo left spacing",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_logo_bottom",
+      "label": "Mobile logo bottom spacing",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+
+    {
+      "type": "header",
+      "content": "Text"
+    },
+
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Desktop title size",
+      "min": 2,
+      "max": 6,
+      "step": 0.1,
+      "unit": "rem",
+      "default": 3.5
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_title_size",
+      "label": "Mobile title size",
+      "min": 1.5,
+      "max": 4,
+      "step": 0.1,
+      "unit": "rem",
+      "default": 2.2
+    },
+
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Desktop subtitle size",
+      "min": 0.8,
+      "max": 2,
+      "step": 0.1,
+      "unit": "rem",
+      "default": 1.2
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_subtitle_size",
+      "label": "Mobile subtitle size",
+      "min": 0.7,
+      "max": 1.5,
+      "step": 0.1,
+      "unit": "rem",
+      "default": 1
+    },
+
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#FFFFFF"
+    },
+
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle color",
+      "default": "#FFFFFF"
+    },
+
+    {
+      "type": "header",
+      "content": "Image Overlay"
+    },
+
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay darkness",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 40
+    }
+
+  ],
+
   "presets": [
     {
       "name": "Collection Banner"
