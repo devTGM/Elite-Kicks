@@ -1,6 +1,139 @@
+{% doc %}
+  @prompt
+    add a blue authentic tick icon only at the starting of heading 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-authentic-heading-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    color: {{ block.settings.text_color }};
+    font-family: {{ settings.type_heading_font.family }};
+  }
+
+  .ai-authentic-heading-{{ ai_gen_id }}__title {
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.icon_gap }}px;
+    margin: 0;
+    font-size: {{ block.settings.heading_size }}px;
+    line-height: 1.15;
+    font-weight: 600;
+  }
+
+  .ai-authentic-heading-{{ ai_gen_id }}__icon {
+    display: inline-flex;
+    flex: 0 0 auto;
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    color: {{ block.settings.icon_color }};
+  }
+
+  .ai-authentic-heading-{{ ai_gen_id }}__icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-authentic-heading-{{ ai_gen_id }}__title {
+      font-size: {{ block.settings.mobile_heading_size }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-authentic-heading-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <h2 class="ai-authentic-heading-{{ ai_gen_id }}__title">
+    <span class="ai-authentic-heading-{{ ai_gen_id }}__icon" aria-label="Authentic" role="img">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2.25a9.75 9.75 0 1 0 0 19.5 9.75 9.75 0 0 0 0-19.5Zm4.45 7.82-5.1 5.1a1 1 0 0 1-1.42 0l-2.38-2.38a1 1 0 1 1 1.42-1.42l1.67 1.67 4.39-4.39a1 1 0 0 1 1.42 1.42Zm-2.1-4.02.53 1.08 1.2.17c.38.06.53.53.26.8l-.87.85.2 1.2c.06.38-.33.67-.67.49L14 8.07l-1.08.57c-.34.18-.73-.11-.67-.49l.2-1.2-.87-.85c-.27-.27-.12-.74.26-.8l1.2-.17.53-1.08c.17-.35.67-.35.84 0Z"/>
+      </svg>
+    </span>
+    <span>{{ block.settings.heading }}</span>
+  </h2>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Authentic heading",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Authentic footwear"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 16,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile size",
+      "min": 14,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 14,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "icon_gap",
+      "label": "Icon spacing",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon",
+      "default": "#1769E0"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Authentic heading"
+    }
+  ],
+  "tag": null,
+  "class": "authentic-heading-block"
+}
 {% endschema %}
