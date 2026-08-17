@@ -730,6 +730,18 @@
     "section_J8rjEz": {
       "type": "section",
       "blocks": {
+        "icon_BEfNKa": {
+          "type": "icon",
+          "name": "t:names.icon",
+          "settings": {
+            "icon": "none",
+            "image_upload": "shopify://shop_images/blue_tick.png",
+            "width": 32,
+            "link": "",
+            "open_in_new_tab": false
+          },
+          "blocks": {}
+        },
         "text_YyUEYY": {
           "type": "text",
           "name": "t:names.heading",
@@ -784,6 +796,7 @@
         }
       },
       "block_order": [
+        "icon_BEfNKa",
         "text_YyUEYY",
         "text_JxzbJU"
       ],
@@ -791,7 +804,7 @@
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
+        "horizontal_alignment": "space-between",
         "vertical_alignment": "center",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "center",
@@ -911,7 +924,7 @@
             "card_4_text": "The perfect finishing touch",
             "card_4_link": "shopify://collections/perfume",
             "card_5_tag": "LIMITED EDITION",
-            "card_5_image": "shopify://shop_images/coach_bag_3.png",
+            "card_5_image": "shopify://shop_images/c76f02563e1c15dd4b55771b93df5caa.jpg",
             "card_5_title": "ACCESSORIES",
             "card_5_text": "Step into luxury and comfort",
             "card_5_link": "shopify://collections/watches",
@@ -1897,6 +1910,7 @@
       "block_order": [
         "slide_bb7JqU"
       ],
+      "disabled": true,
       "name": "t:names.slideshow_full_frame",
       "settings": {
         "display_mode": "full_frame",
