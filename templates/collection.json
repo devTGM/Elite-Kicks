@@ -99,6 +99,29 @@
         "padding-block-end": 10
       }
     },
+    "collection_banner_aQQXTF": {
+      "type": "collection-banner",
+      "name": "Collection Banner",
+      "settings": {
+        "corner_logo": "shopify://shop_images/Elite_Kicks_Co_Secondary_Logo_For_White_BG_e2843950-86c9-420b-917b-f1ec72a95cc4.png",
+        "subtitle": "Discover the latest styles from Elite Kicks Co.",
+        "desktop_height": 400,
+        "mobile_height": 250,
+        "logo_width": 190,
+        "logo_left": 10,
+        "logo_bottom": 10,
+        "mobile_logo_width": 130,
+        "mobile_logo_left": 10,
+        "mobile_logo_bottom": 20,
+        "title_size": 3.5,
+        "mobile_title_size": 2.2,
+        "subtitle_size": 1.2,
+        "mobile_subtitle_size": 1,
+        "title_color": "#ffffff",
+        "subtitle_color": "#ffffff",
+        "overlay_opacity": 40
+      }
+    },
     "collection_list_XTWGyC": {
       "type": "collection-list",
       "blocks": {
@@ -495,11 +518,6 @@
         "padding-block-start": 4,
         "padding-block-end": 48
       }
-    },
-    "collection_banner_aQQXTF": {
-      "type": "collection-banner",
-      "name": "Collection Banner",
-      "settings": {}
     }
   },
   "order": [
