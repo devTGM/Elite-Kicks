@@ -1,0 +1,36 @@
+{% if collection.metafields.custom.collection_banner.value %}
+  <section class="collection-banner">
+    <img
+      src="{{ collection.metafields.custom.collection_banner.value | image_url: width: 2400 }}"
+      alt="{{ collection.title | escape }}"
+      loading="eager"
+    >
+  </section>
+
+  <style>
+    .collection-banner {
+      width: 100%;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .collection-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Collection Banner",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Collection Banner"
+    }
+  ]
+}
+{% endschema %}
