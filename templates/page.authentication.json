@@ -14,7 +14,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/ot_2649a89d-87af-4fad-96a4-3fc3e728eb02.png",
+        "image_1": "shopify://shop_images/qr.png",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -40,6 +40,13 @@
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 75,
+        "corner_logo": "shopify://shop_images/Elite_Kicks_Co_secondary_logo_for_black_BG_b490a092-0eac-4c1d-a86b-820ad3e0671c.png",
+        "logo_width": 210,
+        "logo_left": 30,
+        "logo_bottom": 10,
+        "mobile_logo_width": 130,
+        "mobile_logo_left": 20,
+        "mobile_logo_bottom": 20,
         "padding-block-start": 40,
         "padding-block-end": 40
       }
