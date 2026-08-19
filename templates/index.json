@@ -875,6 +875,12 @@
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 75,
+        "logo_width": 180,
+        "logo_left": 30,
+        "logo_bottom": 25,
+        "mobile_logo_width": 130,
+        "mobile_logo_left": 20,
+        "mobile_logo_bottom": 20,
         "padding-block-start": 0,
         "padding-block-end": 0
       }
@@ -2416,99 +2422,21 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "accordion_row_Q4jimV": {
-              "type": "_accordion-row",
-              "settings": {
-                "heading": "Which Jordan silhouette is best for everyday wear?",
-                "open_by_default": false,
-                "icon": "none",
-                "width": 20
-              },
-              "blocks": {
-                "text_6ht8RU": {
-                  "type": "text",
-                  "settings": {
-                    "text": "<p> For most people, the Air Jordan 1 Low, Jordan 1 Mid, and Jordan 3 make the perfect everyday sneakers—offering the right mix of style, comfort, and versatility without being overly flashy.</p>",
-                    "width": "100%",
-                    "max_width": "none",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_6ht8RU"
-              ]
-            },
-            "accordion_row_LE74qV": {
-              "type": "_accordion-row",
-              "settings": {
-                "heading": "Are Jordan 1s uncomfortable for long wear?",
-                "open_by_default": false,
-                "icon": "none",
-                "width": 20
-              },
-              "blocks": {
-                "text_exefWT": {
-                  "type": "text",
-                  "settings": {
-                    "text": "<p>They’re not exactly uncomfortable, but they’re built on 80s basketball technology. If you’re on your feet all day, you may feel better support and cushioning in AJ3, AJ5, AJ12, or AJ13, which offer a more modern comfort experience.</p>",
-                    "width": "100%",
-                    "max_width": "none",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_exefWT"
-              ]
-            },
-            "accordion_row_aYiPHB": {
+            "accordion_row_BkceDM": {
               "type": "_accordion-row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "I have not received an order confirmation email. What shall I do?",
+                "heading": "Are your products brand new and authentic?",
                 "open_by_default": false,
                 "icon": "none",
                 "width": 20
               },
               "blocks": {
-                "text_iLKbhi": {
+                "text_F3NhfU": {
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Browse through your spam, junk and promotions folder. In case you have still not received the confirmation, reach out to us on  <a href=\"mailto:Support@elitekicks.in\"><span style=\"text-decoration:underline\">Support@elitekicks.in</span></a> with the following details:<br/><br/>1.Full name under which the order has been placed<br/>2.Email address<br/>3.Item(s) purchased<br/>4.Order ID</p>",
+                    "text": "<p>Every product sold on Elite kicks co  website is brand new (DS). We have an in-house legit checking system which follows a 3-step verification process. All pairs listed on the website are deadstock and are verified authentic.</p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
@@ -2532,7 +2460,7 @@
                 }
               },
               "block_order": [
-                "text_iLKbhi"
+                "text_F3NhfU"
               ]
             },
             "accordion_row_fCAbax": {
@@ -2576,21 +2504,21 @@
                 "text_3fFwLc"
               ]
             },
-            "accordion_row_BkceDM": {
+            "accordion_row_aYiPHB": {
               "type": "_accordion-row",
               "name": "t:names.accordion_row",
               "settings": {
-                "heading": "Are your products brand new and authentic?",
+                "heading": "I have not received an order confirmation email. What shall I do?",
                 "open_by_default": false,
                 "icon": "none",
                 "width": 20
               },
               "blocks": {
-                "text_F3NhfU": {
+                "text_iLKbhi": {
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Every product sold on Elite kicks co  website is brand new (DS). We have an in-house legit checking system which follows a 3-step verification process. All pairs listed on the website are deadstock and are verified authentic.</p>",
+                    "text": "<p>Browse through your spam, junk and promotions folder. In case you have still not received the confirmation, reach out to us on  <a href=\"mailto:Support@elitekicks.in\"><span style=\"text-decoration:underline\">Support@elitekicks.in</span></a> with the following details:<br/><br/>1.Full name under which the order has been placed<br/>2.Email address<br/>3.Item(s) purchased<br/>4.Order ID</p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
@@ -2614,7 +2542,7 @@
                 }
               },
               "block_order": [
-                "text_F3NhfU"
+                "text_iLKbhi"
               ]
             },
             "accordion_row_rdYNza": {
@@ -2699,11 +2627,9 @@
             }
           },
           "block_order": [
-            "accordion_row_Q4jimV",
-            "accordion_row_LE74qV",
-            "accordion_row_aYiPHB",
-            "accordion_row_fCAbax",
             "accordion_row_BkceDM",
+            "accordion_row_fCAbax",
+            "accordion_row_aYiPHB",
             "accordion_row_rdYNza",
             "accordion_row_iggbpN"
           ]
