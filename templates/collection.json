@@ -103,7 +103,7 @@
       "type": "collection-banner",
       "name": "Collection Banner",
       "settings": {
-        "corner_logo": "shopify://shop_images/Elite_Kicks_Co_secondary_logo_for_black_BG.png",
+        "corner_logo": "shopify://shop_images/Elite_Kicks_Co_secondary_logo_for_black_BG_b94497ef-7f3b-48d9-8484-96b238d2b91e.png",
         "subtitle": "Discover the latest styles from Elite Kicks Co.",
         "desktop_height": 400,
         "mobile_height": 250,
@@ -119,7 +119,7 @@
         "mobile_subtitle_size": 1,
         "title_color": "#ffffff",
         "subtitle_color": "#ffffff",
-        "overlay_opacity": 40
+        "overlay_opacity": 35
       }
     },
     "collection_list_XTWGyC": {
