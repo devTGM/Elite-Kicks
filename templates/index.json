@@ -1605,6 +1605,7 @@
         "ai_gen_block_b6536c3_gakNEU",
         "ai_gen_block_462a835_VYggEm"
       ],
+      "disabled": true,
       "name": "STORY SECTION",
       "settings": {
         "content_direction": "column",
