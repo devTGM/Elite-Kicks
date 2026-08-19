@@ -2615,6 +2615,86 @@
               "block_order": [
                 "text_F3NhfU"
               ]
+            },
+            "accordion_row_rdYNza": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "What watches are best for everyday wear?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_KTfLiG": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Best everyday watches combine reliability, versatility, comfort and timeless style. Popular options include Seiko Sports GMT watches, Seiko Mods for those who prefer a more personalised look, and Tissot watches for a refined blend of everyday practicality and Swiss watchmaking. When choosing an everyday watch, consider your personal style, wrist comfort, durability and how easily it pairs with different outfits and accessories.<br/><br/><br/><br/></p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_KTfLiG"
+              ]
+            },
+            "accordion_row_iggbpN": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "How do I choose the right handbag for my style?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_kWnXxg": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Choose a handbag based on your personal style, wardrobe, preferred colours, and how you plan to use it. Classic handbags from brands like Coach, Michael Kors, and Tory Burch offer versatility, while statement designs from brands such as Hermès, Goyard, and Gucci can add a distinctive touch to any outfit.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_kWnXxg"
+              ]
             }
           },
           "block_order": [
@@ -2622,7 +2702,9 @@
             "accordion_row_LE74qV",
             "accordion_row_aYiPHB",
             "accordion_row_fCAbax",
-            "accordion_row_BkceDM"
+            "accordion_row_BkceDM",
+            "accordion_row_rdYNza",
+            "accordion_row_iggbpN"
           ]
         }
       },
