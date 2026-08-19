@@ -164,11 +164,14 @@
 
   .collection-banner__corner-logo {
     position: absolute;
-
+    /* Controls the padded spacing from the bottom-left corner */
     left: {{ section.settings.logo_left }}px;
     bottom: {{ section.settings.logo_bottom }}px;
 
+    /* Base width from settings */
     width: {{ section.settings.logo_width }}px;
+    /* Prevents the logo from ever becoming wider than 25% of the desktop screen */
+    max-width: 25vw; 
 
     z-index: 5;
     line-height: 0;
@@ -179,6 +182,7 @@
     width: 100%;
     height: auto;
     max-width: 100%;
+    object-fit: contain;
   }
 
 
@@ -206,9 +210,14 @@
     }
 
     .collection-banner__corner-logo {
+      /* Mobile padded spacing */
       left: {{ section.settings.mobile_logo_left }}px;
       bottom: {{ section.settings.mobile_logo_bottom }}px;
+      
+      /* Target width from settings */
       width: {{ section.settings.mobile_logo_width }}px;
+      /* Crucial fix for responsiveness: caps the logo at 35% of the mobile screen so it never overflows */
+      max-width: 35vw; 
     }
   }
 </style>
