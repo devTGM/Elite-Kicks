@@ -1,7 +1,3 @@
-{% doc %}
-  @prompt
-    A pop up link text which connects a metafield page object sand shows a beautified page. It should come with a option of either a pop up or drawer,  Need a icon option as well
-{% enddoc %}
 {% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
 
 {% style %}
@@ -217,10 +213,19 @@
   class="ai-page-link-{{ ai_gen_id }}"
   {{ block.shopify_attributes }}
 >
-  <button
-    class="ai-page-link-trigger-{{ ai_gen_id }}"
-    aria-label="Open {{ block.settings.link_text }}"
-  >
+  {%- if block.settings.display_type == 'link' -%}
+    <a 
+      href="{{ block.settings.redirect_url | default: block.settings.page.url }}" 
+      class="ai-page-link-trigger-{{ ai_gen_id }}" 
+      aria-label="Go to {{ block.settings.link_text }}"
+    >
+  {%- else -%}
+    <button
+      class="ai-page-link-trigger-{{ ai_gen_id }}"
+      aria-label="Open {{ block.settings.link_text }}"
+    >
+  {%- endif -%}
+
     {% if block.settings.show_icon %}
       {% if block.settings.icon_position == 'left' %}
         <span class="ai-page-link-icon-{{ ai_gen_id }}">
@@ -263,7 +268,9 @@
         </span>
       {% endif %}
     {% endif %}
+
     <span>{{ block.settings.link_text }}</span>
+    
     {% if block.settings.show_icon %}
       {% if block.settings.icon_position == 'right' %}
         <span class="ai-page-link-icon-{{ ai_gen_id }}">
@@ -306,117 +313,124 @@
         </span>
       {% endif %}
     {% endif %}
-  </button>
 
-  <div class="ai-page-link-overlay-{{ ai_gen_id }}"></div>
+  {%- if block.settings.display_type == 'link' -%}
+    </a>
+  {%- else -%}
+    </button>
+  {%- endif -%}
 
-  {% if block.settings.display_type == 'popup' %}
-    <div
-      class="ai-page-link-popup-{{ ai_gen_id }}"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="ai-page-link-title-{{ ai_gen_id }}"
-    >
-      <div class="ai-page-link-header-{{ ai_gen_id }}">
-        {% if block.settings.page %}
-          <h2
-            id="ai-page-link-title-{{ ai_gen_id }}"
-            class="ai-page-link-title-{{ ai_gen_id }}"
+  {% unless block.settings.display_type == 'link' %}
+    <div class="ai-page-link-overlay-{{ ai_gen_id }}"></div>
+
+    {% if block.settings.display_type == 'popup' %}
+      <div
+        class="ai-page-link-popup-{{ ai_gen_id }}"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="ai-page-link-title-{{ ai_gen_id }}"
+      >
+        <div class="ai-page-link-header-{{ ai_gen_id }}">
+          {% if block.settings.page %}
+            <h2
+              id="ai-page-link-title-{{ ai_gen_id }}"
+              class="ai-page-link-title-{{ ai_gen_id }}"
+            >
+              {{ block.settings.page.title }}
+            </h2>
+          {% else %}
+            <h2
+              id="ai-page-link-title-{{ ai_gen_id }}"
+              class="ai-page-link-title-{{ ai_gen_id }}"
+            >
+              {{ block.settings.link_text }}
+            </h2>
+          {% endif %}
+          <button
+            class="ai-page-link-close-{{ ai_gen_id }}"
+            aria-label="Close"
           >
-            {{ block.settings.page.title }}
-          </h2>
-        {% else %}
-          <h2
-            id="ai-page-link-title-{{ ai_gen_id }}"
-            class="ai-page-link-title-{{ ai_gen_id }}"
-          >
-            {{ block.settings.link_text }}
-          </h2>
-        {% endif %}
-        <button
-          class="ai-page-link-close-{{ ai_gen_id }}"
-          aria-label="Close"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="ai-page-link-content-{{ ai_gen_id }}">
+          {% if block.settings.page %}
+            {{ block.settings.page.content }}
+          {% else %}
+            <div class="ai-page-link-empty-{{ ai_gen_id }}">
+              Next, select a page to display
+            </div>
+          {% endif %}
+        </div>
       </div>
-      <div class="ai-page-link-content-{{ ai_gen_id }}">
-        {% if block.settings.page %}
-          {{ block.settings.page.content }}
-        {% else %}
-          <div class="ai-page-link-empty-{{ ai_gen_id }}">
-            Next, select a page to display
-          </div>
-        {% endif %}
-      </div>
-    </div>
-  {% else %}
-    <div
-      class="ai-page-link-drawer-{{ ai_gen_id }}"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="ai-page-link-title-{{ ai_gen_id }}"
-    >
-      <div class="ai-page-link-header-{{ ai_gen_id }}">
-        {% if block.settings.page %}
-          <h2
-            id="ai-page-link-title-{{ ai_gen_id }}"
-            class="ai-page-link-title-{{ ai_gen_id }}"
+    {% elsif block.settings.display_type == 'drawer' %}
+      <div
+        class="ai-page-link-drawer-{{ ai_gen_id }}"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="ai-page-link-title-{{ ai_gen_id }}"
+      >
+        <div class="ai-page-link-header-{{ ai_gen_id }}">
+          {% if block.settings.page %}
+            <h2
+              id="ai-page-link-title-{{ ai_gen_id }}"
+              class="ai-page-link-title-{{ ai_gen_id }}"
+            >
+              {{ block.settings.page.title }}
+            </h2>
+          {% else %}
+            <h2
+              id="ai-page-link-title-{{ ai_gen_id }}"
+              class="ai-page-link-title-{{ ai_gen_id }}"
+            >
+              {{ block.settings.link_text }}
+            </h2>
+          {% endif %}
+          <button
+            class="ai-page-link-close-{{ ai_gen_id }}"
+            aria-label="Close"
           >
-            {{ block.settings.page.title }}
-          </h2>
-        {% else %}
-          <h2
-            id="ai-page-link-title-{{ ai_gen_id }}"
-            class="ai-page-link-title-{{ ai_gen_id }}"
-          >
-            {{ block.settings.link_text }}
-          </h2>
-        {% endif %}
-        <button
-          class="ai-page-link-close-{{ ai_gen_id }}"
-          aria-label="Close"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="ai-page-link-content-{{ ai_gen_id }}">
+          {% if block.settings.page %}
+            {{ block.settings.page.content }}
+          {% else %}
+            <div class="ai-page-link-empty-{{ ai_gen_id }}">
+              Next, select a page to display
+            </div>
+          {% endif %}
+        </div>
       </div>
-      <div class="ai-page-link-content-{{ ai_gen_id }}">
-        {% if block.settings.page %}
-          {{ block.settings.page.content }}
-        {% else %}
-          <div class="ai-page-link-empty-{{ ai_gen_id }}">
-            Next, select a page to display
-          </div>
-        {% endif %}
-      </div>
-    </div>
-  {% endif %}
+    {% endif %}
+  {% endunless %}
 </page-link-modal-{{ ai_gen_id }}>
 
 <script>
@@ -428,15 +442,22 @@
 
       connectedCallback() {
         this.trigger = this.querySelector('.ai-page-link-trigger-{{ ai_gen_id }}');
-        this.overlay = this.querySelector('.ai-page-link-overlay-{{ ai_gen_id }}');
         this.modal = this.querySelector('.ai-page-link-popup-{{ ai_gen_id }}, .ai-page-link-drawer-{{ ai_gen_id }}');
+        
+        // If it's a direct link, the modal won't exist. Abort the popup JS so it navigates normally.
+        if (!this.modal) return;
+
+        this.overlay = this.querySelector('.ai-page-link-overlay-{{ ai_gen_id }}');
         this.closeButton = this.querySelector('.ai-page-link-close-{{ ai_gen_id }}');
 
         this.setupEventListeners();
       }
 
       setupEventListeners() {
-        this.trigger.addEventListener('click', () => this.open());
+        this.trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.open();
+        });
         this.closeButton.addEventListener('click', () => this.close());
         this.overlay.addEventListener('click', () => this.close());
 
@@ -484,7 +505,12 @@
     {
       "type": "page",
       "id": "page",
-      "label": "Page"
+      "label": "Page (for Popup/Drawer content)"
+    },
+    {
+      "type": "url",
+      "id": "redirect_url",
+      "label": "Redirect URL (Only used if Display Type is Direct Link)"
     },
     {
       "type": "select",
@@ -498,6 +524,10 @@
         {
           "value": "drawer",
           "label": "Drawer"
+        },
+        {
+          "value": "link",
+          "label": "Direct Link"
         }
       ],
       "default": "popup"
