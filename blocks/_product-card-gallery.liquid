@@ -59,12 +59,21 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  width: 55px;
+  width: 75px;
   height: auto;
-  max-width: 40%;
+  max-width: 25%;
   object-fit: contain;
   z-index: 10;
   pointer-events: none;
+}
+
+@media screen and (max-width: 749px) {
+  .product-collection-overlay-logo {
+    top: 8px;
+    right: 8px;
+    width: 55px;
+    max-width: 22%;
+  }
 }
   .product-badges {
     --badge-inset: max(var(--padding-xs), calc((var(--border-radius) + var(--padding-xs)) * (1 - cos(45deg))));
