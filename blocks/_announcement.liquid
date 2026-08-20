@@ -112,6 +112,10 @@
   .text-block--align-right > * {
     margin-inline-start: auto;
   }
+  .text-block--{{ block.id }} .announcement-bar__text strong,
+.text-block--{{ block.id }} .announcement-bar__text b {
+  color: #ff0000; /* Change this hex code to your desired color */
+}
 {% endstylesheet %}
 
 {% schema %}
