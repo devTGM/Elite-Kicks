@@ -1,4 +1,3 @@
-
 {%- doc -%}
   Renders a header menu block.
 
@@ -159,14 +158,14 @@
       <div class="header-menu__inner">
         <nav header-menu>
           <div
-  class="menu-list"
-  style="
-    {% render 'menu-font-styles', settings: block_settings %}
-    {% if block_settings.type_font_primary_link == 'arial' %}
-      --menu-top-level-font-family: Arial, Helvetica, sans-serif;
-    {% endif %}
-  "
->
+            class="menu-list"
+            style="
+              {% render 'menu-font-styles', settings: block_settings %}
+              {% if block_settings.type_font_primary_link == 'arial' %}
+                --menu-top-level-font-family: Arial, Helvetica, sans-serif;
+              {% endif %}
+            "
+          >
             {% assign class = 'overflow-menu' | append: color_scheme_classes %}
             {% render 'overflow-list',
               class: class,
@@ -323,11 +322,16 @@
     }
   }
 
+  /* 
+     UPDATED: This block controls the Active and Hover states.
+     Changed to output dark red (#800000) and bold (700) font weight.
+  */
   /* stylelint-disable-next-line selector-max-specificity */
   .menu-list:not(:has(.menu-list__list-item:hover)) .menu-list__link--active,
   .menu-list .menu-list__list-item:where(:hover, :focus-within) .menu-list__link,
   .menu-list .menu-list__list-item[slot='overflow'] .menu-list__link[aria-expanded='true'] {
-    color: var(--menu-top-level-font-color);
+    color: #800000;
+    font-weight: 700;
   }
 
   .overflow-menu::part(list) {
