@@ -27,8 +27,19 @@
       {%- endif -%}
     </div>
     {%  if settings.quick_add or settings.mobile_quick_add %}
-      {% render 'quick-add', product: product, section_id: section.id %}
-    {% endif %}
+  {% render 'quick-add', product: product, section_id: section.id %}
+{% endif %}
+
+{% assign overlay_logo = product.metafields.custom.collection_overlay_logo.value %}
+
+{% if request.page_type == 'collection' and overlay_logo != blank %}
+  {{
+    overlay_logo
+    | image_url: width: 150
+    | image_tag: class: 'product-collection-overlay-logo', alt: ''
+  }}
+{% endif %}
+    
   {% endunless %}
 {% endcapture %}
 
@@ -44,6 +55,17 @@
 </div>
 
 {% stylesheet %}
+.product-collection-overlay-logo {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 55px;
+  height: auto;
+  max-width: 20%;
+  object-fit: contain;
+  z-index: 10;
+  pointer-events: none;
+}
   .product-badges {
     --badge-inset: max(var(--padding-xs), calc((var(--border-radius) + var(--padding-xs)) * (1 - cos(45deg))));
 
