@@ -310,8 +310,9 @@
               "name": "Page link popup",
               "settings": {
                 "link_text": "Verified Authentic",
-                "page": "authentication-process",
-                "display_type": "popup",
+                "page": "",
+                "redirect_url": "https://www.elitekicks.in/pages/authentication-process",
+                "display_type": "link",
                 "link_font_size": 16,
                 "link_underline": "underline",
                 "link_color": "#000000",
