@@ -1,3 +1,5 @@
+
+
 {% assign product = closest.product %}
 
 {% capture children %}
@@ -24,19 +26,6 @@
         </div>
       {%- endif -%}
     </div>
-
-    {% # INSTANT SHIPPING LOGO START %}
-    {%- if block.settings.instant_shipping_logo != blank -%}
-      {%- comment -%}
-        Optional: If you only want this logo to show on specific products, you can add a tag check here. 
-        For example: {% if product.tags contains 'Instant Shipping' %} 
-      {%- endcomment -%}
-      <div class="product-instant-shipping-logo" style="--logo-width: {{ block.settings.instant_shipping_logo_width }}px;">
-        {{ block.settings.instant_shipping_logo | image_url: width: 200 | image_tag: loading: 'lazy', alt: 'Instant Shipping', class: 'instant-shipping-img' }}
-      </div>
-    {%- endif -%}
-    {% # INSTANT SHIPPING LOGO END %}
-
     {%  if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add', product: product, section_id: section.id %}
     {% endif %}
@@ -56,7 +45,7 @@
 
 {% stylesheet %}
   .product-badges {
-    --badge-inset: max(var(--padding-xs, 8px), calc((var(--border-radius, 0px) + var(--padding-xs, 8px)) * (1 - cos(45deg))));
+    --badge-inset: max(var(--padding-xs), calc((var(--border-radius) + var(--padding-xs)) * (1 - cos(45deg))));
 
     position: absolute;
     z-index: var(--layer-flat);
@@ -96,25 +85,6 @@
   .product-badges__badge--rectangle {
     padding-block: var(--badge-rectangle-padding-block);
     padding-inline: var(--badge-rectangle-padding-inline);
-  }
-
-  /* INSTANT SHIPPING LOGO STYLES */
-  .product-instant-shipping-logo {
-    --badge-inset: max(var(--padding-xs, 8px), calc((var(--border-radius, 0px) + var(--padding-xs, 8px)) * (1 - cos(45deg))));
-    
-    position: absolute;
-    top: calc(var(--badge-inset) + var(--padding-block-start, 0px));
-    right: calc(var(--badge-inset) + var(--padding-inline-end, 0px));
-    z-index: var(--layer-flat, 2);
-    width: var(--logo-width, 40px);
-    max-width: 25%; /* Caps the width at 25% of the product card so it is responsive on mobile grids */
-  }
-
-  .product-instant-shipping-logo img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
   }
 {% endstylesheet %}
 
@@ -247,25 +217,6 @@
       "step": 1,
       "unit": "px",
       "default": 0
-    },
-    {
-      "type": "header",
-      "content": "Instant Shipping Badge"
-    },
-    {
-      "type": "image_picker",
-      "id": "instant_shipping_logo",
-      "label": "Logo Image"
-    },
-    {
-      "type": "range",
-      "id": "instant_shipping_logo_width",
-      "min": 20,
-      "max": 100,
-      "step": 2,
-      "unit": "px",
-      "label": "Logo Desktop Width",
-      "default": 40
     }
   ],
   "presets": [
