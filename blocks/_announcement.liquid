@@ -4,12 +4,6 @@
 {%- assign plain_text = block_settings.text | strip_newlines | strip_html | strip -%}
 {%- assign block_index = section.blocks | find_index: 'id', block.id -%}
 
-<style>
-  .text-block--{{ block.id }} .announcement-bar__text strong,
-  .text-block--{{ block.id }} .announcement-bar__text b {
-    color: #ff0000 !important; /* Change #ff0000 to whatever hex color you want */
-  }
-</style>
 
 {%- unless plain_text == '' -%}
   <slideshow-slide
