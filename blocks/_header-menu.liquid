@@ -160,11 +160,12 @@
         <nav header-menu>
           <div
   class="menu-list"
-  style="
+  style=style="
     {% render 'menu-font-styles', settings: block_settings %}
+    --menu-top-level-font-weight: {{ block_settings.type_font_primary_weight }};
+    --menu-top-level-font-color-active: {{ block_settings.active_menu_color }};
     {% if block_settings.type_font_primary_link == 'arial' %}
       --menu-top-level-font-family: Arial, Helvetica, sans-serif;
-      --menu-top-level-font-weight: 600;
     {% endif %}
   "
 >
@@ -702,6 +703,14 @@
     /* preserves the inherited grid layout when this submenu wrapper is used */
     display: contents;
   }
+  .menu-list .menu-list__link--active {
+  color: var(--menu-top-level-font-color-active) !important;
+}
+
+.menu-list .menu-list__list-item:hover .menu-list__link--active,
+.menu-list .menu-list__list-item:focus-within .menu-list__link--active {
+  color: var(--menu-top-level-font-color-active) !important;
+}
 {% endstylesheet %}
 
 {% schema %}
