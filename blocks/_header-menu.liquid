@@ -286,10 +286,11 @@
     visibility: hidden;
   }
 
+  /* UPDATED: This controls the base font look */
   .menu-list__link {
     font-family: var(--menu-top-level-font-family);
     font-style: var(--menu-top-level-font-style);
-    font-weight: var(--menu-top-level-font-weight);
+    font-weight: 600 !important; /* Made overall text a little bolder */
     font-size: var(--menu-top-level-font-size);
     line-height: var(--menu-top-level-font-line-height);
     text-transform: var(--menu-top-level-font-case);
@@ -323,15 +324,15 @@
   }
 
   /* 
-     UPDATED: This block controls the Active and Hover states.
-     Changed to output dark red (#800000) and bold (700) font weight.
+     UPDATED: Hover / Active state. 
+     Dark red (#800000) and extra bold (800)
   */
   /* stylelint-disable-next-line selector-max-specificity */
   .menu-list:not(:has(.menu-list__list-item:hover)) .menu-list__link--active,
   .menu-list .menu-list__list-item:where(:hover, :focus-within) .menu-list__link,
   .menu-list .menu-list__list-item[slot='overflow'] .menu-list__link[aria-expanded='true'] {
-    color: #800000;
-    font-weight: 700;
+    color: #800000 !important;
+    font-weight: 800 !important;
   }
 
   .overflow-menu::part(list) {
